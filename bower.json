@@ -1,0 +1,36 @@
+{
+  "name": "grayshirts",
+  "version": "0.1",
+  "description": "Grayshirts",
+  "keywords": [
+    "grayshirts"
+  ],
+  "authors": [
+    "Grayshirts Team"
+  ],
+  "homepage": "http://www.grayshirts.co",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "headjs": "1.0.3"
+  },
+  "overrides": {
+    "jquery": {
+      "main": "dist/jquery.js"
+    },
+    "modernizr": {
+      "main": "modernizr.js"
+    },
+    "headjs": {
+      "main": "dist/**/head.js"
+    }
+  }
+}

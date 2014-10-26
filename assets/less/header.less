@@ -1,0 +1,66 @@
+//
+// @name: Header
+// @type: Component
+// @description: Header for all frontend, used in many pages.
+//
+
+header {
+  background-color: rgba(255,255,255,1);
+  overflow: hidden;
+  padding: 20px 0;
+
+  .logo {
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 38px;
+    width: 124px;
+    margin: 0 0 0 20px;
+    text-indent: 9999px;
+    z-index: 9999;
+    -webkit-transition: none;
+    transition: none;
+
+    &.png {
+      background-image: url(../img/grayshirts-gray.png);
+    }
+    &.svg {
+      background-image: url(../img/grayshirts-gray.svg);
+    }
+  } // end logo
+
+  .menu {
+    position: absolute;
+    right: 50px; top: 0;
+
+    ul {
+      margin: 0;
+    }
+    li {
+      display: inline-block; 
+      margin: 0 20px;
+      vertical-align: middle;
+      font-weight: 600;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    a {
+      color: #666;
+      display: block;
+      border-bottom: 2px solid #FFF;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 40px;
+      text-transform: uppercase;
+      opacity: .7;
+      &:hover {
+        border-bottom-color: #666;
+        opacity: 1;
+      }
+    }
+    .selected a {
+      opacity: 1;
+    }
+  } // end menu
+}

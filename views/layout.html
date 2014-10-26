@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Temperature test from Spark Core">
+    <meta name="author" content="NBM">
+
+    <title>{% block title %}My Site{% endblock %}</title>
+
+    <!-- External fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- endinject -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    {% include 'layout/header.html' %}
+    {% block content %}{% endblock %}
+    {% include 'layout/footer.html' %}
+
+
+    <script type="text/javascript">
+    /* scr.js 0B 0.1.4 - 14/10/2011 - Little tiny loader for javascript sources. */(function(a){window.scr={js:function(o,h){if(typeof o==="string"){o=[o]}var j,k,m,l,f,g,d;j=a.getElementsByTagName("script")[0];k={t:o.length,i:0};k.r=function(){return k.t===k.i};m=function(){k.i+=1;if(h&&k.r()){h()}};l=(function(){if(j.readyState){return function(b){b.onreadystatechange=function(){if(b.readyState==="loaded"||b.readyState==="complete"){b.onreadystatechange=null;m()}}}}else{return function(b){b.onload=function(){m()}}}}());f=0;g=a.createElement("script");for(f;f<k.t;f+=1){d=g.cloneNode(true);l(d);d.src=o[f];j.parentNode.insertBefore(d,j)}}}}(document));
+
+    scr.js(["http://cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js",'/js/lib.js'], function() {
+
+        var getTemp = function(url){
+            $.ajax({
+              dataType: "json",
+              url: url,
+              success: function(data){
+                $('#temperature').html(data.result.toFixed(1)+'°');
+              },
+              error: function(){
+                //throw new Error('request: Error in respnse api');
+              }
+            });
+        }
+
+        sparkLogin(function(data) {
+            console.log(data);
+            $('#spark-login').remove();
+            $('#temperature').show();
+            
+            var url = 'https://api.spark.io/v1/devices/53ff6c066667574841512567/temperature\?access_token='+data.access_token;
+
+            setInterval(function(){
+                getTemp(url);
+            },3000);
+
+        });
+
+    });
+
+</script>
+
+
+  </body>
+</html>

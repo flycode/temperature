@@ -1,0 +1,52 @@
+//
+// @name: Footer
+// @type: Component
+// @description: Footer for all frontend, used in many pages.
+//
+
+footer {
+  background-color: #FFF;
+  color: #999;
+
+  a {
+    color: #999;
+  }
+  hr {
+    border: 1px solid #F5F5F5;
+    position: absolute;
+    top: 20px; left: 15px; right: 15px;
+  }
+  .row {
+    overflow: hidden;
+    position: relative;
+  }
+  .copy, .info {
+    margin: 0 10px 30px;
+    float: left;
+  }
+  .info {
+    float: right;
+  }
+  .share {
+    background-color: #FFF;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    width: 130px; height: 45px;
+    z-index: 1;
+    
+    li {
+      display: inline-block;
+
+      a {
+        opacity: .5;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .icon {
+        font-size: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,249 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style-type: none;
+}
+.noscroll {
+  overflow: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  margin-top: 0;
+}
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=text],
+select,
+textarea {
+  border-width: 2px;
+}
+select {
+  padding-left: 16px;
+}
+main {
+  padding: 0 0 70px;
+}
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+}
+section {
+  background-color: #FFF;
+  overflow: hidden;
+  /*text-align: center;*/
+  padding: 50px 0;
+  position: relative;
+}
+section h4 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+.flow .box {
+  font-size: 16px;
+  text-align: center;
+}
+.title-section {
+  font-size: 22px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.title-section hr {
+  border: 1px solid #EEE;
+  margin-top: -17px;
+}
+.title-section h2 {
+  background-color: #FFF;
+  color: #666;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0;
+  padding: 0 40px;
+}
+img {
+  opacity: 0;
+  transition: opacity 300ms linear;
+  -webkit-transition: opacity 300ms linear;
+  -moz-transition: opacity 300ms linear;
+  -o-transition: opacity 300ms linear;
+  -ms-transition: opacity 300ms linear;
+}
+img.on {
+  opacity: 1;
+}
+.welcome {
+  height: 572px;
+  margin: 0 0 40px;
+  padding: 0;
+  position: relative;
+}
+.welcome .bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 300ms linear;
+  -webkit-transition: opacity 300ms linear;
+  -moz-transition: opacity 300ms linear;
+  -o-transition: opacity 300ms linear;
+  -ms-transition: opacity 300ms linear;
+}
+.welcome .bg.on {
+  opacity: 1;
+}
+.welcome .overlay {
+  background-color: #3D8BA7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .6;
+}
+.welcome h1 {
+  color: #FFF;
+  display: inline-block;
+  line-height: 44px;
+  margin: 0 auto;
+  font-family: "Lato";
+  font-size: 36px;
+  font-weight: 300;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.home {
+  text-align: center;
+  padding: 80px 0;
+}
+.home .title {
+  font-size: 20px;
+  margin: 0 0 20px;
+}
+.home .temperature {
+  font-size: 40px;
+  margin: 0;
+}
+header {
+  background-color: #ffffff;
+  overflow: hidden;
+  padding: 20px 0;
+}
+header .logo {
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 38px;
+  width: 124px;
+  margin: 0 0 0 20px;
+  text-indent: 9999px;
+  z-index: 9999;
+  -webkit-transition: none;
+  transition: none;
+}
+header .logo.png {
+  background-image: url(../img/grayshirts-gray.png);
+}
+header .logo.svg {
+  background-image: url(../img/grayshirts-gray.svg);
+}
+header .menu {
+  position: absolute;
+  right: 50px;
+  top: 0;
+}
+header .menu ul {
+  margin: 0;
+}
+header .menu li {
+  display: inline-block;
+  margin: 0 20px;
+  vertical-align: middle;
+  font-weight: 600;
+}
+header .menu li:last-child {
+  margin-right: 0;
+}
+header .menu a {
+  color: #666;
+  display: block;
+  border-bottom: 2px solid #FFF;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 40px;
+  text-transform: uppercase;
+  opacity: .7;
+}
+header .menu a:hover {
+  border-bottom-color: #666;
+  opacity: 1;
+}
+header .menu .selected a {
+  opacity: 1;
+}
+footer {
+  background-color: #FFF;
+  color: #999;
+}
+footer a {
+  color: #999;
+}
+footer hr {
+  border: 1px solid #F5F5F5;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  right: 15px;
+}
+footer .row {
+  overflow: hidden;
+  position: relative;
+}
+footer .copy,
+footer .info {
+  margin: 0 10px 30px;
+  float: left;
+}
+footer .info {
+  float: right;
+}
+footer .share {
+  background-color: #FFF;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  width: 130px;
+  height: 45px;
+  z-index: 1;
+}
+footer .share li {
+  display: inline-block;
+}
+footer .share li a {
+  opacity: .5;
+}
+footer .share li a:hover {
+  opacity: 1;
+}
+footer .share li .icon {
+  font-size: 32px;
+}
