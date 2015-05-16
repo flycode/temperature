@@ -31,14 +31,15 @@
     <script type="text/javascript">
     /* scr.js 0B 0.1.4 - 14/10/2011 - Little tiny loader for javascript sources. */(function(a){window.scr={js:function(o,h){if(typeof o==="string"){o=[o]}var j,k,m,l,f,g,d;j=a.getElementsByTagName("script")[0];k={t:o.length,i:0};k.r=function(){return k.t===k.i};m=function(){k.i+=1;if(h&&k.r()){h()}};l=(function(){if(j.readyState){return function(b){b.onreadystatechange=function(){if(b.readyState==="loaded"||b.readyState==="complete"){b.onreadystatechange=null;m()}}}}else{return function(b){b.onload=function(){m()}}}}());f=0;g=a.createElement("script");for(f;f<k.t;f+=1){d=g.cloneNode(true);l(d);d.src=o[f];j.parentNode.insertBefore(d,j)}}}}(document));
 
-    scr.js(["http://cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js",'/js/lib.js'], function() {
+    scr.js(["http://cdn.jsdelivr.net/sparkjs/0.4.2/spark.min.js",'/js/lib.js'], function() {
 
-        var getTemp = function(url){
+        var getData = function(url){
             $.ajax({
               dataType: "json",
               url: url,
               success: function(data){
-                $('#temperature').html(data.result.toFixed(1)+'°');
+                console.log(data);
+                //$('#temperature').html(data.result.toFixed(1)+'°');
               },
               error: function(){
                 //throw new Error('request: Error in respnse api');
@@ -46,18 +47,42 @@
             });
         }
 
-        sparkLogin(function(data) {
-            console.log(data);
+        var token = '6242561253627cc86d748d5fbf0dab3c95fd2f5a';
+        spark.on('login', function(data) {
+            console.log(spark.accessToken);
             $('#spark-login').remove();
             $('#temperature').show();
-            
-            var url = 'https://api.spark.io/v1/devices/53ff6c066667574841512567/temperature\?access_token='+data.access_token;
+
+            var temperature = 'https://api.spark.io/v1/devices/53ff6c066667574841512567/temperature\?access_token='+spark.accessToken;
+            var humedity = 'https://api.spark.io/v1/devices/53ff6c066667574841512567/humedity\?access_token='+spark.accessToken;
+            var soil = 'https://api.spark.io/v1/devices/53ff6c066667574841512567/soil\?access_token='+spark.accessToken;
 
             setInterval(function(){
-                getTemp(url);
+                getData(temperature);
+                getData(humedity);
+                getData(soil);
             },3000);
 
+            //Get all events
+            // spark.getEventStream(false, false, function(data) {
+            //     console.log("Event: " + JSON.stringify(data));
+            // });
+            // //Get your devices events
+            // spark.getEventStream(false, 'mine', function(data) {
+            //     console.log("Event: " + JSON.stringify(data));
+            // });
+            //Get test event for specific core
+            // spark.getEventStream('temperature', false, function(data) {
+            //     console.log("Event: " + JSON.stringify(data));
+            // });
+
         });
+
+        spark.login({ accessToken: token });
+
+  //       Spark.variable("temperature", &temperature, DOUBLE);
+  // Spark.variable("humedity", &humedity, DOUBLE);
+  // Spark.variable("soil", &soil, DOUBLE);
 
     });
 
